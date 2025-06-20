@@ -77,7 +77,7 @@ Es la capa más cercana al cliente y traduce las solicitudes en operaciones del 
 ```bash
 # Clonar el repositorio
 git clone https://github.com/Jkranio/taxi-24-challenge.git
-cd taxi24
+cd taxi-24-challenge
 
 # Instalación de dependencias
 npm install
