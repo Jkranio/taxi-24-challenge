@@ -1,9 +1,5 @@
 # Taxi-24-challenge
 
-> **Stack** NestJS · TypeORM · PostgreSQL · Docker Compose
-
----
-
 
 ## Descripción
 Taxi24 es una nueva startup que quiere revolucionar la industria del transporte proporcionando
@@ -11,23 +7,52 @@ una solución de marca blanca existentes.
 Taxi-24-challenge contiene un microservicio backend —inspirado en la prueba técnica homónima— para gestionar **conductores**, **pasajeros**, **viajes** e **invoices**.
 
 ---
+## Prerequisitos
+
+- **Node.js**: Versión 18 o superior  
+- **npm**: Instalado junto con Node.js  
+- **Docker**: Para ejecutar los contenedores de base de datos y Adminer  
+- **Docker Compose**: Para orquestar los servicios definidos en `docker-compose.yml`
+
+---
 
 ## Arquitectura
-
+El proyecto sigue una arquitectura modular basada en principios de diseño limpio (Clean Architecture). Cada módulo representa una funcionalidad específica del sistema y está dividido en capas para separar las responsabilidades. Esto facilita el mantenimiento, escalabilidad y pruebas del código.
 ```text
 src/
  ├─ modules/
  │   ├─ drivers/
- │   │   ├─ domain/        (Driver models, repo‑interface)
- │   │   ├─ infrastructure/ (DriverEntity, DriverRepository)
- │   │   ├─ application/   (DriversService)
- │   │   └─ presentation/  (DriversController, DTOs)
+ │   │   ├─ domain/         # Define los modelos y las interfaces del repositorio.
+ │   │   ├─ infrastructure/ # Implementa las entidades y repositorios específicos.
+ │   │   ├─ application/    # Contiene la lógica de negocio (servicios).
+ │   │   └─ presentation/   # Maneja la interacción con el usuario (controladores, DTOs).
  │   ├─ passengers/ …
  │   ├─ trips/ …
  │   └─ invoices/ …
  │
  └─ main.ts
 ```
+### Descripción de las Capas
+**Domain:**
+
+Contiene los modelos de datos y las interfaces que definen los contratos del repositorio.
+Es independiente de cualquier implementación específica.
+
+**Infrastructure:**
+
+Implementa las entidades y repositorios que interactúan directamente con la base de datos u otros servicios externos.
+Aquí se define cómo se almacenan y recuperan los datos.
+
+**Application:**
+
+Contiene la lógica de negocio del módulo.
+Los servicios en esta capa orquestan las operaciones entre las capas de dominio e infraestructura.
+
+**Presentation:**
+
+Maneja la interacción con el usuario o cliente (API REST, DTOs, controladores).
+Es la capa más cercana al cliente y traduce las solicitudes en operaciones del sistema.
+
 ---
 
 ## Variables de entorno
