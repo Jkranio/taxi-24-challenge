@@ -56,6 +56,8 @@ Es la capa más cercana al cliente y traduce las solicitudes en operaciones del 
 ---
 
 ## Variables de entorno
+Se debe crear un archivo `.env` en la raiz del proyecto que contenga las variables necesarias para levantar el microservicio.
+En el archivo `.env.example` encontrarás las declaraciones de dichas variables y en la tabla siguiente propuestas para sus valores junto a sus definiciones.
 
 | Variable       | Propuesta                                 | Descripción                                  |
 | -------------- | ----------------------------------------- | -------------------------------------------- |
