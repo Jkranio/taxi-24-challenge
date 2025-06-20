@@ -1,0 +1,402 @@
+{
+	"info": {
+		"_postman_id": "5d3dbcee-bc48-4204-be4e-5d35dff602e9",
+		"name": "Taxi24",
+		"description": "Testing relationships and persistence",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12465167"
+	},
+	"item": [
+		{
+			"name": "Drivers",
+			"item": [
+				{
+					"name": "Create Driver",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fullName\": \"Alberto Torres\",\r\n  \"phone\": \"9652415240\",\r\n  \"email\": \"alb@exadmdfpdle.com\",\r\n  \"vehiclePlate\": \"ABfkkkC123\",\r\n  \"vehicleModel\": \"Toyota Yaris\",\r\n  \"driverLicense\": \"PE654321\",\r\n  \"latitude\": 40.7128,\r\n  \"longitude\": -74.0060\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/drivers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"drivers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllDrivers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/drivers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"drivers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllDriversAvalable",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/drivers/available",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"drivers",
+								"available"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DriverNearby",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/drivers/nearby?lat=40.7128&lng=-74.0060&radius=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"drivers",
+								"nearby"
+							],
+							"query": [
+								{
+									"key": "lat",
+									"value": "40.7128"
+								},
+								{
+									"key": "lng",
+									"value": "-74.0060"
+								},
+								{
+									"key": "radius",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDriverById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/drivers/1af249c9-e439-4a3d-be44-9e95496956c5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"drivers",
+								"1af249c9-e439-4a3d-be44-9e95496956c5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Passengers",
+			"item": [
+				{
+					"name": "Create Passenger",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fullName\": \"Javiera Barros\",\r\n  \"phone\": \"1234512359\",\r\n  \"email\": \"javi@example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/passengers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"passengers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllPassenggers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/passengers/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"passengers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPassenggersById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/passengers/04ee9ffb-4510-4ddd-ad5e-b9d883ee60f9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"passengers",
+								"04ee9ffb-4510-4ddd-ad5e-b9d883ee60f9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetNearstDrivers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/passengers/81311873-f5ee-49df-8796-91c35c95b225/nearest-drivers?lat=-33.45&lng=-70.66&limit=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"passengers",
+								"81311873-f5ee-49df-8796-91c35c95b225",
+								"nearest-drivers"
+							],
+							"query": [
+								{
+									"key": "lat",
+									"value": "-33.45"
+								},
+								{
+									"key": "lng",
+									"value": "-70.66"
+								},
+								{
+									"key": "limit",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Trips",
+			"item": [
+				{
+					"name": "Create Trip",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"driverId\": \"bde92569-4613-4a06-8808-6816aa73878c\",\r\n  \"passengerId\": \"374a1d3a-926f-4c58-8ea9-d5ff30c39c19\",\r\n \"originLat\": -33.47,\r\n  \"originLong\": -70.64,\r\n  \"destLat\": -33.45,\r\n  \"destLong\": -70.69,\r\n  \"distanceKm\": 4.5,\r\n  \"durationSec\": 780,\r\n  \"fare\": 6200,\r\n  \"currency\": \"CLP\",\r\n  \"status\": \"ONGOING\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/trips",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"trips"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetTrips",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/trips/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"trips",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetActive",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/trips/active",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"trips",
+								"active"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Complete",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/trips/09eef03a-e392-41f9-bc32-be21cefdfd75/complete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"trips",
+								"09eef03a-e392-41f9-bc32-be21cefdfd75",
+								"complete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Invoices",
+			"item": [
+				{
+					"name": "Create Invoice",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tripId\": \"f633c338-04eb-41af-a863-ae067537bb7e\",\r\n    \"subtotal\": 25.50,\r\n    \"tax\": 2.55,\r\n    \"total\": 28.05,\r\n    \"paymentMethod\": \"CASH\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/invoices",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"invoices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Invoices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/invoices",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"invoices"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.environment.set('baseUrl', 'http://localhost:3000');"
+				]
+			}
+		}
+	]
+}

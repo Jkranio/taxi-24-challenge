@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: ${DB_USERNAME:-taxi24}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-taxi24}
+      POSTGRES_DB:  ${DB_NAME:-taxi24}
+    ports: 
+      - "${DB_PORT:-5433}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data      
+      - ./db-init/:/docker-entrypoint-initdb.d/ 
+    restart: always
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
